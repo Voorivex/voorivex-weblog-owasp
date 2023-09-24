@@ -126,10 +126,13 @@ CREATE TABLE `users` (
   `last_name` varchar(255) DEFAULT NULL,
   `bio` varchar(2000) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
+  `token` varchar(32) DEFAULT NULL,
   `registration_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`),
-  UNIQUE KEY `username` (`username`,`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  UNIQUE KEY `username` (`username`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `token` (`token`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -138,7 +141,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'voorivex','y.shahinzadeh@gmail.com',NULL,NULL,NULL,'P@ssw0rd','2023-09-16 14:19:59'),(2,'mamad','mamad@gmail.com',NULL,NULL,NULL,'mamad_secure','2023-09-16 15:15:48');
+INSERT INTO `users` VALUES (1,'voorivex','y.shahinzadeh@gmail.com',NULL,NULL,NULL,'yashar','null','2023-09-16 14:19:59'),(2,'mamad','mamad@gmail.com',NULL,NULL,NULL,'mamad_secure',NULL,'2023-09-16 15:15:48'),(3,'test1','test@test.com',NULL,NULL,NULL,'test',NULL,'2023-09-24 10:07:53'),(11,'test2','test2@gmail.com',NULL,NULL,NULL,'test2',NULL,'2023-09-24 10:37:26');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -151,4 +154,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-16 16:07:14
+-- Dump completed on 2023-09-24 11:32:12

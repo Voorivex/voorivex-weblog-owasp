@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voorivex Weblog System</title>
-    <link rel="stylesheet" href="/statics/styles.css">
-    <script src="/statics/functions.js"></script>
-    <!-- Add any additional CSS or JavaScript links here -->
-</head>
 <?php
-$is_logged = $_COOKIE['is_logged'];
-$user_id = $_COOKIE['user_id'];
-if ($is_logged == 'true' and !is_null($user_id)) {
+session_start();
+include 'header.php';
+if (isset($_SESSION['is_logged']) === true) {
 ?>
 <body>
     <header>
@@ -21,7 +11,7 @@ if ($is_logged == 'true' and !is_null($user_id)) {
                 <li><a href="#">Write</a></li>
                 <li><a href="#">Posts</a></li>
                 <li><a href="#">Settings</a></li>
-                <li>(<?php echo $_COOKIE['username']?>) <a href="#" onclick="deleteAllCookies();redirect('/login.php');">Logout</a></li>
+                <li>(<?php echo $_SESSION['username']?>) <a href="#" onclick="deleteAllCookies();redirect('/login.php');">Logout</a></li>
             </ul>
         </nav>
     </header>
