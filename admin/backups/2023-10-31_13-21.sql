@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.34, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.35, for Linux (x86_64)
 --
 -- Host: localhost    Database: voorivex_weblog
 -- ------------------------------------------------------
--- Server version	8.0.34-0ubuntu0.22.04.1
+-- Server version	8.0.35-0ubuntu0.22.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -27,7 +27,7 @@ CREATE TABLE `categories` (
   `category_name` varchar(255) NOT NULL,
   `ategory_description` varchar(2000) NOT NULL,
   PRIMARY KEY (`category_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,6 +36,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
+INSERT INTO `categories` VALUES (1,'Security','The posts are about security field'),(2,'Programming','The posts are about programming.');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -76,7 +77,7 @@ CREATE TABLE `posts` (
   `category_id` int DEFAULT NULL,
   `publication_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`post_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,6 +86,7 @@ CREATE TABLE `posts` (
 
 LOCK TABLES `posts` WRITE;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
+INSERT INTO `posts` VALUES (3,'test','test',1,1,'2023-10-31 11:09:10'),(4,'second blog post','MAMAD is back',1,2,'2023-10-31 11:12:00'),(5,'BOS MAMAD','BOS MAMAD',2,1,'2023-10-31 11:47:57');
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,7 +143,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'voorivex','y.shahinzadeh@gmail.com','Yashar','Shahinzadeh','I\'m a hacker','123qwe!@#QWE','920dba9f387a7505649c66560eb3833d','2023-09-16 14:19:59'),(2,'mamad','mamad@gmail.com',NULL,NULL,NULL,'mamad_secure','null','2023-09-16 15:15:48'),(3,'test1','test@test.com',NULL,NULL,NULL,'test',NULL,'2023-09-24 10:07:53'),(11,'test2','test2@gmail.com',NULL,NULL,NULL,'test2',NULL,'2023-09-24 10:37:26'),(12,'bTKt','',NULL,NULL,NULL,'Gsdk',NULL,'2023-09-25 18:59:06'),(1449,'moein','moeinefn@gmail.com',NULL,NULL,NULL,'nosafe','b268d93183a51579632d540bfe2ff5d7','2023-09-27 12:57:26'),(1452,'a','b',NULL,NULL,NULL,'0',NULL,'2023-10-01 16:19:05'),(1453,'mamad12321','mamad12321@gmail.com',NULL,NULL,NULL,'mamad12321',NULL,'2023-10-19 13:31:33'),(1454,'sos','sos@sos.com','\">','','\">','sos',NULL,'2023-10-27 10:24:55');
+INSERT INTO `users` VALUES (1,'voorivex','y.shahinzadeh@gmail.com','Yashar','Shahinzadeh','I\'m a hacker','123123',NULL,'2023-09-16 14:19:59'),(2,'mamad','mamad@gmail.com',NULL,NULL,NULL,'123',NULL,'2023-09-16 15:15:48'),(3,'test1','test@test.com',NULL,NULL,NULL,'test',NULL,'2023-09-24 10:07:53'),(11,'test2','test2@gmail.com',NULL,NULL,NULL,'test2',NULL,'2023-09-24 10:37:26'),(12,'bTKt','',NULL,NULL,NULL,'Gsdk',NULL,'2023-09-25 18:59:06'),(1449,'moein','moeinefn@gmail.com',NULL,NULL,NULL,'nosafe','b268d93183a51579632d540bfe2ff5d7','2023-09-27 12:57:26'),(1452,'a','b',NULL,NULL,NULL,'0',NULL,'2023-10-01 16:19:05'),(1453,'mamad12321','mamad12321@gmail.com',NULL,NULL,NULL,'mamad12321',NULL,'2023-10-19 13:31:33'),(1454,'sos','sos@sos.com','\">','','\">','sos',NULL,'2023-10-27 10:24:55');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -154,4 +156,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-29 15:21:09
+-- Dump completed on 2023-10-31 13:21:35

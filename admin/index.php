@@ -1,23 +1,25 @@
 <?php
 session_start();
-include 'header.php';
-include 'db.php';
+include 'access.php';
+include '../header.php';
+include '../db.php';
 ?>
+
 <body>
     <header>
         <nav>
             <ul>
                 <li><a href="index.php">Index</a></li>
-                <li><a href="/all_posts.php">All Posts</a></li>
-                <li><a href="/user_panel.php">User Panel</a></li>
+                <li><a href="backup.php">Database Backup</a></li>
+                <li><a href="all_users.php">All Users</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section>
-            <h1>Voorivex Blog infrastructure</h1>
-            <p>This websites provide users to write their blog posts</p>
+            <h1>Administration Panel</h1>
+            <p>Welcome admin</p>
         </section>
 
 </script>

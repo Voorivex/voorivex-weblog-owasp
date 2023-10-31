@@ -2,6 +2,11 @@
 session_start();
 include 'header.php';
 include 'db.php';
+
+$sql = "SELECT * FROM `posts` where post_id = " . $_GET['post_id'];
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+
 ?>
 <body>
     <header>
@@ -11,13 +16,12 @@ include 'db.php';
                 <li><a href="/all_posts.php">All Posts</a></li>
                 <li><a href="/user_panel.php">User Panel</a></li>
             </ul>
-        </nav>
     </header>
 
     <main>
         <section>
-            <h1>Voorivex Blog infrastructure</h1>
-            <p>This websites provide users to write their blog posts</p>
+            <h1><?php echo $row['title']; ?></h1>
+            <p><?php echo $row['content']; ?></p>
         </section>
 
 </script>
