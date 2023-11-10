@@ -16,7 +16,10 @@ function category_id_to_name($conn, $id) {
 }
 
 if (array_key_exists('author_id', $_GET)) {
-    $sql = "SELECT * FROM `posts` where author_id = " . $_GET['author_id'];
+    # unsafe query led to SQLi vulnerability:
+    # $sql = "SELECT * FROM `posts` where author_id = " . $_GET['author_id'];
+    # safe query:
+    $sql = "SELECT * FROM `posts` where author_id = " . intval($_GET['author_id']);
 } else {
     $sql = "SELECT * FROM `posts`";
 }
