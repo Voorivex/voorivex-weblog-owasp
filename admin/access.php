@@ -2,6 +2,7 @@
 function getUserIP() {
     $ip = '';
 
+    # the vulnerability is here:
     if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['HTTP_X_FORWARDED_FOR'] !== '') {
         // Use the forwarded IP address if it exists
         $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
@@ -12,7 +13,7 @@ function getUserIP() {
 
     // Additional checks and validation can be added here, depending on your requirements
 
-    return $ip;
+    return $_SERVER['REMOTE_ADDR'];
 }
 
 // Example usage:
