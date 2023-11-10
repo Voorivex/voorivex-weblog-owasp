@@ -3,7 +3,12 @@ session_start();
 include 'header.php';
 include 'db.php';
 
-$sql = "SELECT * FROM `posts` where post_id = " . $_GET['post_id'];
+# unsafe query led to SQLi vulnerability:
+# $sql = "SELECT * FROM `posts` where post_id = " . $_GET['post_id'];
+
+# safe query:
+$sql = "SELECT * FROM `posts` where post_id = " . intval($_GET['post_id']);
+
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
