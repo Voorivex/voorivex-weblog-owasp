@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 include 'header.php';
 include 'db.php';
@@ -21,7 +22,7 @@ if ($post_id <= 0) {
 $sql = "SELECT * FROM posts WHERE post_id = $post_id";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
-
+ob_end_flush();
 ?>
 
 <body>

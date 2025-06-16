@@ -1,20 +1,25 @@
 <?php
-class MySQLBackup {
+class MySQLBackup
+{
     private $username;
     private $password;
     private $database;
     private $backupPath;
+    private $host;
 
-    public function __construct($username, $password, $database, $backupPath) {
+    public function __construct($username, $password, $database, $backupPath, $host)
+    {
         $this->username = $username;
         $this->password = $password;
         $this->database = $database;
         $this->backupPath = $backupPath;
+        $this->host = $host;
     }
 
-    public function __destruct() {
+    public function __destruct()
+    {
         $backupFile = $this->backupPath . date('Y-m-d_H-i') . '.sql';
-        $command = "mysqldump -u {$this->username} -p{$this->password} {$this->database} > $backupFile";
+        $command = "mysqldump -h {$this->host} -u {$this->username} -p{$this->password} {$this->database} > $backupFile";
         exec($command);
 
         if ($backupFile) {
@@ -24,6 +29,4 @@ class MySQLBackup {
             readfile($backupFile);
         }
     }
-
 }
-?>

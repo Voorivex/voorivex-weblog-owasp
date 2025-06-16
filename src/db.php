@@ -1,5 +1,6 @@
 <?php
-$db_servername = "localhost"; // Replace with your MySQL server hostname or IP address
+$db_host = "db"; // Replace with your MySQL server host in docker compose
+$db_servername = "voorivex-weblog-mysql-container"; // Replace with your MySQL server hostname or IP address
 $db_username = "voorivex"; // Replace with your MySQL username
 $db_password = "mamad123"; // Replace with your MySQL password
 $db_database = "voorivex_weblog"; // Replace with the name of your MySQL database

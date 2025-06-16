@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include 'header.php';
 echo '<h1>Resgistration</h1>';
 include 'db.php';
@@ -49,4 +50,5 @@ if (isset($token_result) === true) { ?>
 }
 
 include 'footer.php';
+ob_end_flush();
 ?>

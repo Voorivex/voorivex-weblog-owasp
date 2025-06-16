@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 include 'header.php';
 include 'db.php';
@@ -45,4 +46,5 @@ if (mysqli_query($conn, $sql)) {
 } else {
     echo "Error deleting the post: " . mysqli_error($conn);
 }
+ob_end_flush();
 ?>

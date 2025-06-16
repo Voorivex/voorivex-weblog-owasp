@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 include 'header.php';
 echo '<h1>Login</h1>';
@@ -45,4 +46,5 @@ if (isset($message)) {
     echo "<p>$message</p>";
 }
 include 'footer.php';
+ob_end_flush();
 ?>

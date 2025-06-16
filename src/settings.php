@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 include 'header.php';
 include 'db.php';
@@ -42,7 +43,7 @@ if (isset($_SESSION['is_logged']) === true) {
     } catch (mysqli_sql_exception $e) {
         $message = $e->getMessage();
     }
-
+ob_end_flush();
 ?>
 <body>
     <header>

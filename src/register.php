@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include 'header.php';
 echo '<h1>Resgistration</h1>';
 include 'db.php';
@@ -42,4 +43,5 @@ if (isset($message)) {
     echo "<p>$message</p>";
 }
 include 'footer.php';
+ob_end_flush();
 ?>
