@@ -16,8 +16,9 @@ function getUserIP() {
     return $_SERVER['REMOTE_ADDR'];
 }
 
+
 // Example usage:
-if (getUserIP() != '127.0.0.1' and getUserIP() != '212.154.101.247') {
+if (!preg_match("/172\.\d{1,3}\.\d{1,3}\.\d{1,3}$/",getUserIP()) and getUserIP() != '127.0.0.1' and getUserIP() != '212.154.101.247') {
     echo 'Access Denied';
     die;
 }

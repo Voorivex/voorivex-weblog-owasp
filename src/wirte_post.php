@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 include 'header.php';
 include 'db.php';
@@ -27,7 +28,7 @@ if (isset($_SESSION['is_logged']) === true) {
     $sql = "SELECT * FROM categories";
     $result = mysqli_query($conn, $sql);
     $rows = mysqli_fetch_all($result);
-
+ob_end_flush();
 ?>
 <body>
     <header>

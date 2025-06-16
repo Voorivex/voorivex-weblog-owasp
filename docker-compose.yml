@@ -1,0 +1,27 @@
+services:
+  php:
+    build: .
+    working_dir: /var/www/html/
+    volumes:
+      - ./src:/var/www/html/
+    ports:
+      - 9000:9000
+    command: php -S 0.0.0.0:9000
+
+  db:
+    image: mysql
+    container_name: voorivex-weblog-mysql-container
+    restart: on-failure
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=voorivex_weblog
+      - MYSQL_USER=voorivex
+      - MYSQL_PASSWORD=mamad123
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: on-failure
+    ports:
+     - 8080:80

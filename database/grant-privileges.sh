@@ -1,0 +1,7 @@
+#!/bin/bash
+
+mysql -u root <<-EOSQL
+  GRANT PROCESS ON *.* TO '${MYSQL_USER}'@'%';
+  GRANT ALL PRIVILEGES ON \`${MYSQL_DATABASE}\`.* TO '${MYSQL_USER}'@'%';
+  FLUSH PRIVILEGES;
+EOSQL

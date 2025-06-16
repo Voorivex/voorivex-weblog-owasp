@@ -10,8 +10,8 @@ include '../db.php';
         <nav>
             <ul>
                 <li><a href="index.php">Index</a></li>
-                <li><a href="backup.php">Database Backup</a></li>
-                <li><a href="all_users.php">All Users</a></li>
+                <li><a href="/admin/backup.php">Database Backup</a></li>
+                <li><a href="/admin/all_users.php">All Users</a></li>
             </ul>
         </nav>
     </header>

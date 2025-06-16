@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 include 'header.php';
 include 'db.php';
@@ -52,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $error = "Error updating the post: " . mysqli_error($conn);
     }
 }
+ob_end_flush();
 ?>
 <body>
     <header>
